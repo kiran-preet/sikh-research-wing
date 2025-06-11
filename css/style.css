@@ -3,8 +3,8 @@
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #fcb041;
-  --secondary-color:              #316ba0;
+  --primary-color:                #14213d;
+  --secondary-color:              #000000;
   --section-bg-color:             #f5f5f5;
   --dark-color:                   #000000;
   --p-color:                      #717275;
@@ -208,17 +208,19 @@ strong {
   CUSTOM BUTTON               
 -----------------------------------------*/
 .custom-btn {
-  background: var(--secondary-color);
+  background: var(--white-color);
   border-radius: 100px;
-  color: var(--white-color);
+  color: var(--secondary-color);
   font-size: var(--copyright-text-font-size);
   font-weight: var(--font-weight-bold);
   padding: 12px 24px;
+  transition:all ease-in 0.3s;
 }
 
 .custom-btn:hover {
-  background: var(--primary-color);
-  color: var(--white-color);
+  background: var(--white-color);
+  color: var(--secondary-color);
+  box-shadow:0 0 20px #FFF;
 }
 
 .custom-bg-primary {
@@ -351,7 +353,7 @@ strong {
 }
 
 .site-header-icon {
-  color: var(--dark-color);
+  color: var(--white-color);
 }
 
 .site-header .social-icon {
@@ -525,8 +527,28 @@ strong {
   margin-left: 30px;
   margin-bottom: 30px;
   padding: 30px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;  
 }
+  
+  .nav-item .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--p-color), var(--p-color));
+    border-radius: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .nav-item  {
+    position:relative;
+  }
+  .nav-item .nav-link:hover::before {
+    width: 100%;
+    border-radius: 50%;
+  }
 
 .nav-tabs .nav-item.show .nav-link, 
 .nav-tabs .nav-link.active,
@@ -675,16 +697,20 @@ strong {
   outline: none;
 }
 
-.custom-form .form-control:hover,
-.custom-form .form-control:focus {
-  background: var(--white-color);
+.custom-form .form-control {
+  color:var(--white-color);
 }
 
+/*.custom-form .form-control:hover,
+.custom-form .form-control:focus {
+  background: var(--white-color);
+}*/
+
 .custom-form button[type="submit"] {
-  background: var(--secondary-color);
+  background: var(--white-color);
   border-radius: 100px;
   border: 0;
-  color: var(--white-color);
+  color: var(--primary-color);
   font-weight: var(--font-weight-bold);
   transition: all 0.3s;
   margin-bottom: 0;
@@ -692,8 +718,7 @@ strong {
 
 .custom-form button[type="submit"]:hover,
 .custom-form button[type="submit"]:focus {
-  background: var(--white-color);
-  color: var(--dark-color);
+  box-shadow: 0 0 20px #FFF;
 }
 
 
@@ -896,3 +921,10 @@ strong {
   }
 }
 
+img:not(.logo) {
+  filter: grayscale(100%);
+}
+
+.text-warning {
+  color:var(--primary-color);
+}
