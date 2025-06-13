@@ -928,3 +928,7 @@ img:not(.logo) {
 .text-warning {
   color:var(--primary-color);
 }
+.main p {
+  line-height:2;
+  text-align:justify;
+}
